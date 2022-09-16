@@ -24,7 +24,7 @@ const ContactList = ({contacts , onDelete}) => {
     return (
         <section className="table-responsive mt-5">
             <div className='d-flex justify-content-center align-items-center m-5'>
-            <Button variant='primary' className="AddContactLink"><Link to="/add" style={{textDecoration:"none" , color:"#fff"}}>Add New Contact?</Link></Button>
+            <Button variant='primary' className="AddContactLink"><Link to="/add" style={{textDecoration:"none" , color:"#fff"}}>Add New Contact ?</Link></Button>
             </div>
             <Table striped bordered hover className='table-info w-75 m-auto'>
                 <thead>
