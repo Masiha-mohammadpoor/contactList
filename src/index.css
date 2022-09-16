@@ -1,6 +1,6 @@
 .AddContactForm{
     width: 400px;
-    height: 300px;
+    height: 400px;
     margin: auto;
 }
 
@@ -13,7 +13,26 @@
     flex-direction: column;
 }
 
-/* .tableOfContactList{
-    width: 900px;
+.optionsBtn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 18px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.optionsBtn:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.AddContactLink{
     margin: auto;
-} */
+}

@@ -1,6 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import {Link , useNavigate} from "react-router-dom";
 
 const AddContact = ({onClick}) => {
 
@@ -8,6 +9,8 @@ const AddContact = ({onClick}) => {
         name:"",
         email:""
     });
+
+    const navigate = useNavigate();
 
     const changeHandler = (e) => {
         setValue({...value , [e.target.name] : e.target.value});
@@ -18,6 +21,7 @@ const AddContact = ({onClick}) => {
         onClick({...value , id:new Date().getTime()});
 
         setValue({name:"",email:""});
+        navigate("/")
     }
 
 
@@ -41,6 +45,7 @@ const AddContact = ({onClick}) => {
                 onChange={changeHandler} />
 
                 <Button variant="success" className='w-100' onClick={submitHandler}>Add Contact</Button>
+                <Link to="/">go to contact List</Link>
             </Form>
         </section>
     );
