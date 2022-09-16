@@ -7,7 +7,8 @@ const AddContact = ({onClick}) => {
 
     const [value , setValue] = useState({
         name:"",
-        email:""
+        email:"",
+        phone:""
     });
 
     const navigate = useNavigate();
@@ -17,11 +18,13 @@ const AddContact = ({onClick}) => {
     }
 
     const submitHandler = () => {
-        if(!value.name || !value.email) alert("please fill all field");
+        if(!value.name || !value.email || !value.phone) alert("please fill all field");
+        else{
         onClick({...value , id:new Date().getTime()});
 
-        setValue({name:"",email:""});
-        navigate("/")
+        setValue({name:"",email:"",phone:""});
+        navigate("/");
+        }
     }
 
 
@@ -42,6 +45,14 @@ const AddContact = ({onClick}) => {
                 placeholder='email...' 
                 autoComplete="off"
                 value={value.email} 
+                onChange={changeHandler} />
+
+                <Form.Control 
+                type="number" 
+                name="phone" 
+                placeholder='phone...' 
+                autoComplete="off"
+                value={value.phone} 
                 onChange={changeHandler} />
 
                 <Button variant="success" className='w-100' onClick={submitHandler}>Add Contact</Button>

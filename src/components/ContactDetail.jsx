@@ -5,7 +5,7 @@ import {useLocation , Link} from "react-router-dom";
 const ContactDetail = () => {
     const location = useLocation();
 
-    const {name , email} = location.state;
+    const {name , email , phone} = location.state;
 
 
     return (
@@ -13,6 +13,7 @@ const ContactDetail = () => {
         <Alert variant='success' className='m-5 w-25'>
             <Alert.Heading>{name}</Alert.Heading>
             <p>{email}</p>
+            <small>{phone}</small>
         </Alert>
         <Link to="/">go to contact List</Link>
         </div>

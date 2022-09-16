@@ -6,15 +6,16 @@ import {Link} from "react-router-dom";
 const ContactList = ({contacts , onDelete}) => {
 
     const renderList = () => {
-        if(contacts.length === 0) return <tr><td colSpan={4} style={{textAlign:"center" , color:"#ff0000"}}>please add a contact</td></tr>;
+        if(contacts.length === 0) return <tr><td colSpan={5} style={{textAlign:"center" , color:"#ff0000"}}>please add a contact</td></tr>;
         else{
             return contacts.map(c => {
-                const {id , name , email} = c;
+                const {id , name , email , phone} = c;
                 return <Contact
                         key={id}
                         id={id}
                         name={name}
                         email={email}
+                        phone={phone}
                         onDelete={() => onDelete(id)}/>
                     })
                 }
@@ -31,6 +32,7 @@ const ContactList = ({contacts , onDelete}) => {
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Phone</th>
                         <th>Options</th>
                     </tr>
                 </thead>
