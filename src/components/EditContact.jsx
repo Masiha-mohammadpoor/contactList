@@ -3,8 +3,9 @@ import Button from 'react-bootstrap/Button';
 import { useState , useEffect} from 'react';
 import {Link , useNavigate , useParams} from "react-router-dom";
 import getOneContact from "../services/getOneContact";
+import editContact from "../services/editContact";
 
-const EditContact = ({onClick}) => {
+const EditContact = () => {
 
 
     const [value , setValue] = useState({
@@ -30,11 +31,20 @@ const EditContact = ({onClick}) => {
         setValue({...value , [e.target.name] : e.target.value});
     }
 
+    const editContactHandler = async (id , value) => {
+        try{
+            await editContact(id , value);
+        }catch(err){
+            console.error(err)
+        }
+    }
+
+
     const submitHandler = () => {
         if(!value.name || !value.email || !value.phone) alert("please fill all field");
         else{
 
-        onClick(params.id , value);
+        editContactHandler(params.id , value);
         setValue({name:"",email:"",phone:""});
         navigate("/");
         }
@@ -68,7 +78,7 @@ const EditContact = ({onClick}) => {
                 value={value.phone} 
                 onChange={changeHandler} />
 
-                <Button variant="success" className='w-100' onClick={submitHandler}>Add Contact</Button>
+                <Button variant="success" className='w-100' onClick={submitHandler}>Edit Contact</Button>
                 <Link to="/">go to contact List</Link>
             </Form>
         </section>

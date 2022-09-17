@@ -2,9 +2,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import {Link , useNavigate} from "react-router-dom";
+import postContact from "../services/postContact";
 
-
-const AddContact = ({onClick}) => {
+const AddContact = () => {
 
     const [value , setValue] = useState({
         name:"",
@@ -18,15 +18,26 @@ const AddContact = ({onClick}) => {
         setValue({...value , [e.target.name] : e.target.value});
     }
 
+    const addContactHandler = async (value) => {
+        try{
+            await postContact(value);
+        }catch(err){
+            console.error(err)
+        }
+    }
+
+
     const submitHandler = () => {
         if(!value.name || !value.email || !value.phone) alert("please fill all field");
         else{
 
-        onClick(value);
+        addContactHandler(value);
         setValue({name:"",email:"",phone:""});
         navigate("/");
         }
     }
+
+
 
 
     return (

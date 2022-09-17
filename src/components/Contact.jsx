@@ -2,7 +2,7 @@ import {FaTrashAlt , FaEdit} from "react-icons/fa";
 import {Link} from "react-router-dom";
 
 
-const Contact = ({id , name , email,phone , onDelete}) => {
+const Contact = ({id , name , email , phone , number , onDelete}) => {
 
     const options = {
         display:"flex",
@@ -12,7 +12,7 @@ const Contact = ({id , name , email,phone , onDelete}) => {
 
     return (
         <tr>
-            <td>{id}</td>
+            <td>{+(number) + 1}</td>
             <td><Link to={`/contact/${id}`} state={{name , email , phone}}>{name}</Link></td>
             <td><Link to={`/contact/${id}`} state={{name , email , phone}}>{email}</Link></td>
             <td><Link to={`/contact/${id}`} state={{name , email , phone}}>{phone}</Link></td>
