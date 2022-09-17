@@ -22,8 +22,6 @@ const ContactList = () => {
         getData()
     } , [])
 
-
-
     const deleteContactHandler = async (id) => {
         try{
             await deleteContact(id);
@@ -52,12 +50,13 @@ const ContactList = () => {
     }
 
     return (
-        <section className="table-responsive mt-5">
+        <section className="mt-5">
             <div className='d-flex justify-content-center align-items-center m-5'>
                 <Button variant='primary' className="AddContactLink">
                     <Link to="/add" style={{ textDecoration: "none", color: "#fff" }}>Add New Contact ?</Link>
                 </Button>
             </div>
+            <div className='table-responsive'>
             <Table striped bordered hover className='table-info w-75 m-auto'>
                 <thead>
                     <tr>
@@ -72,6 +71,7 @@ const ContactList = () => {
                     {renderList()}
                 </tbody>
             </Table>
+            </div>
         </section>
     );
 }

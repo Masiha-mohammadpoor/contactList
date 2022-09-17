@@ -61,7 +61,7 @@ const AddContact = () => {
 
                 <Form.Control 
                 type="number" 
-                name="phone" 
+                name="phone"
                 placeholder='phone...' 
                 autoComplete="off"
                 value={value.phone} 

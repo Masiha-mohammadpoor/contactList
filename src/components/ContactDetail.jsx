@@ -10,7 +10,7 @@ const ContactDetail = () => {
 
     return (
         <div className='d-flex justify-content-center align-items-center flex-column mt-5 text-center'> 
-        <Alert variant='success' className='m-5 w-25'>
+        <Alert variant='success' className='m-5'>
             <Alert.Heading>{name}</Alert.Heading>
             <p>{email}</p>
             <small>{phone}</small>
