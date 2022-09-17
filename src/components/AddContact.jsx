@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import {Link , useNavigate} from "react-router-dom";
 
+
 const AddContact = ({onClick}) => {
 
     const [value , setValue] = useState({
@@ -20,8 +21,8 @@ const AddContact = ({onClick}) => {
     const submitHandler = () => {
         if(!value.name || !value.email || !value.phone) alert("please fill all field");
         else{
-        onClick({...value , id:new Date().getTime()});
 
+        onClick(value);
         setValue({name:"",email:"",phone:""});
         navigate("/");
         }

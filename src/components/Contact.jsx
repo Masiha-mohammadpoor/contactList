@@ -18,7 +18,7 @@ const Contact = ({id , name , email,phone , onDelete}) => {
             <td><Link to={`/contact/${id}`} state={{name , email , phone}}>{phone}</Link></td>
             <td style={options}>
             <button className="optionsBtn" style={{color:"#ff0000"}} onClick={onDelete}><FaTrashAlt/></button>
-            <button className="optionsBtn" style={{color:"#2027ed"}}><FaEdit/></button>
+            <Link to={`/edit/${id}`}><button className="optionsBtn" style={{color:"#2027ed"}}><FaEdit/></button></Link>
             </td>
         </tr>
     );
