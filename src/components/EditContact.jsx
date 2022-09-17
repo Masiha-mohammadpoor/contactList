@@ -43,7 +43,6 @@ const EditContact = () => {
     const submitHandler = () => {
         if(!value.name || !value.email || !value.phone) alert("please fill all field");
         else{
-
         editContactHandler(params.id , value);
         setValue({name:"",email:"",phone:""});
         navigate("/");

@@ -1,12 +1,10 @@
 import Alert from 'react-bootstrap/Alert';
 import {useLocation , Link} from "react-router-dom";
 
-
 const ContactDetail = () => {
     const location = useLocation();
 
     const {name , email , phone} = location.state;
-
 
     return (
         <div className='d-flex justify-content-center align-items-center flex-column mt-5 text-center'> 

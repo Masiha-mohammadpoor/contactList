@@ -1,11 +1,7 @@
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Contact = ({ id, name, email, phone, number, onDelete }) => {
-
-    const [showTooltip , setShowTooltip] = useState(true);
-
 
     const options = {
         display: "flex",
@@ -17,8 +13,6 @@ const Contact = ({ id, name, email, phone, number, onDelete }) => {
         to: `/contact/${id}`,
         state: { name, email, phone },
     }
-
-    
 
     return (
         <>
@@ -48,5 +42,3 @@ const Contact = ({ id, name, email, phone, number, onDelete }) => {
 }
 
 export default Contact;
-
-//09057277318

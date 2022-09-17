@@ -68,7 +68,6 @@ input[type="number"] {
 
 .table-responsive table{
     overflow-x: scroll;
-    /* max-height:300px; */
 }
 
 .tooltip{
