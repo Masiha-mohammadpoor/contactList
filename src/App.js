@@ -7,6 +7,8 @@ import NotFound from "./components/NotFound";
 import getAllContacts from "./services/getAllcontacts";
 import postContact from "./services/postContact";
 import deleteContact from "./services/deleteContact";
+import EditContact from "./components/EditContact";
+import editContact from "./services/editContact";
 
 
 const App = () => {
@@ -23,7 +25,6 @@ const App = () => {
             }
         }
         getData()
-        // getAllContacts().then(res => setContacts([...res.data]))
     } , [])
 
     const addContactHandler = async (value) => {
@@ -34,7 +35,6 @@ const App = () => {
         }catch(err){
             console.error(err)
         }
-
     }
 
     const deleteContactHandler = async (id) => {
@@ -47,13 +47,24 @@ const App = () => {
         }
     }
 
+    const editContactHandler = async (id , value) => {
+        try{
+            await editContact(id , value);
+            const {data} = await getAllContacts();
+            setContacts([...data]);
+            
+        }catch(err){
+            console.error(err)
+        }
+    }
 
     return (
         <>
         <Routes>
             <Route path="/" element={<ContactList contacts={contacts} onDelete={deleteContactHandler}/>}/> 
             <Route path="/add" element={<AddContact onClick={addContactHandler}/>}/>
-            <Route path="contact/:id" element={<ContactDetail/>}/>
+            <Route path="/contact/:id" element={<ContactDetail/>}/>
+            <Route path="/edit/:id" element={<EditContact onClick={editContactHandler}/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>
         </>
